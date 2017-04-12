@@ -1,0 +1,74 @@
+.signin_container {
+  flex-direction: row;
+}
+
+.signin_form {
+  flex-direction: column;
+}
+
+.signin_custom_form {
+  flex-direction: column;
+}
+
+.signin_facebook_form {
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.input_signin {
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  font-weight: 200;
+  margin-bottom: 10px;
+  padding: 1em;
+  width: 100%;
+  width: 300px;
+}
+
+.signin_submit_btn {
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  color: white;
+  padding: 1em;
+  font-size: 1em;
+  background-color: rgba(124, 89, 125, 1);
+}
+
+.signin_facebook_btn {
+  background-color: #3b5998;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-size: 1em;
+  font-weight: 300;
+  padding: 1em;
+}
+
+.or {
+  text-align: center;
+  font-size: 1.25em;
+  font-family: sans-serif;
+}
+
+.forgot_password {
+  text-align: right;
+  font-family: sans-serif;
+  font-size: .75em;
+  margin-top: 0;
+}
+
+.forgot_password:hover {
+  cursor: pointer;
+  color: rgba(124, 89, 125, 1);
+}
+
+.btn_create_account {
+  text-align: right;
+  cursor: pointer;
+}
+
+.btn_create_account:hover{
+  color: rgba(124, 89, 125, 1);
+}

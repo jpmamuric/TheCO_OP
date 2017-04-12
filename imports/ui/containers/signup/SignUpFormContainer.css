@@ -1,0 +1,59 @@
+.signup_container {
+  flex-direction: column;
+}
+
+.signup_form {
+  flex-direction: column;
+
+}
+
+.signup_input {
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  font-weight: 200;
+  margin-bottom: 15px;
+  padding: 1em;
+  width: 100%;
+  width: 350px;
+}
+
+.signup_submit_btn {
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  color: white;
+  padding: 1em;
+  font-size: 1em;
+  background-color: rgba(124, 89, 125, 1);
+  margin-bottom: 10px;
+}
+
+.signup_facebook_btn {
+  background-color: #3b5998;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-size: 1em;
+  font-weight: 300;
+  padding: 1em;
+
+}
+
+.or {
+  text-align: center;
+  font-size: 1.25em;
+  font-family: sans-serif;
+}
+
+.signin_content{
+  text-align: center;
+}
+
+.btn_signin_account {
+  cursor: pointer;
+}
+
+.btn_signin_account:hover {
+  color: rgba(124, 89, 125, 1);
+}

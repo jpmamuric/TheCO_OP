@@ -1,0 +1,27 @@
+/* CSS declarations go here */
+
+.flex_me {
+  display: flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.box_shadow {
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(211,211,211,1);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(211,211,211,1);
+  box-shadow: 0px 3px 10px 0px rgba(211,211,211,1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(245, 245, 245, 1);
+  font-family: sans-serif;
+}
+
+img {
+  width: 100%;
+}

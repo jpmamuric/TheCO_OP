@@ -1,0 +1,26 @@
+.page_signin {
+  background-color: rgba(250, 250, 250, 1);
+}
+
+.page_home {
+  background-color: rgba(250, 250, 250, 1);
+}
+
+.page_admin {
+  padding-top: 25px;
+  flex-direction: column;
+}
+
+.page_polls,
+.page_signin,
+.page_home,
+.page_admin,
+.page_myaccount {
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.myaccount_container {
+  background-color: white;
+}

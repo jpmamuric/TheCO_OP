@@ -1,0 +1,31 @@
+.admin_poll_list_item {
+  background-color: white;
+  margin: 5px;
+  padding: 10px;
+  width: 300px;
+  justify-content: space-between;
+}
+
+.admin_delete_poll_title {
+  color: rgba(234, 102, 92, 1);
+  font-size: 1.5em;
+}
+
+.admin_delete_btn {
+  color: rgba(234, 102, 92, 1) !important;
+}
+
+.admin_poll_form {
+  flex-direction: column;
+}
+
+.admin_form_textarea_description {
+  width: 300px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}

@@ -1,0 +1,53 @@
+.payment_container {
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.payment_form {
+  background-color: rgba(250, 250, 250, 1);
+  flex-direction: column;
+  padding: 1.5em;
+}
+
+.payment_title {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link_card_cancel_btn {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.link_card_cancel_btn:hover {
+  font-size: 2.5em;
+  color: red;
+}
+
+.payment_input {
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  font-weight: 200;
+  margin-bottom: 10px;
+  padding: 1em;
+  width: 100%;
+  width: 300px;
+  cursor: pointer;
+}
+
+.payment_submit_btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  padding: 1em;
+  width: 100%;
+  background-color: white;
+}
+
+.payment_submit_btn:hover,
+.payment_input:hover {
+  border: rgba(235, 151, 138, 1) 1px solid;
+}
