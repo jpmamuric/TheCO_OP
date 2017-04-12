@@ -47,7 +47,7 @@ class Header extends Component {
             ? <Link className='header_link' to='/admin'>Admin</Link>
             : null
           }
-          <Link className='header_link' to='/myaccount'>Summary</Link>
+          <Link className='header_link' to='/myaccount'>Dashboard</Link>
           <Link className='header_link' to='/polls'>Polls</Link>
           <div
             className='btn_logout header_link' onTouchTap={this.handleLogout}>

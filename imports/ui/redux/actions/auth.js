@@ -2,8 +2,6 @@ import * as types         from './types';
 import { Meteor }         from 'meteor/meteor'
 import { browserHistory } from 'react-router';
 
-import CONFIG             from '../../../../config';
-
 // Change state of email and password
 export const emailInputChange     = text => ({ type: types.EMAIL_INPUT_CHANGE, payload: text });
 export const passwordInputChange  = text => ({ type: types.PASSWORD_INPUT_CHANGE, payload: text });
@@ -13,10 +11,11 @@ export const usernameInputChange  = text => ({ type: types.USERNAME_INPUT_CHANGE
 // Check id ADMINISTRATOR
 export const runAdminCheck = () => {
   const userId = Meteor.userId();
-  const adminId = CONFIG.adminId;
+  const adminId = Meteor.settings.public.adminId;
 
   return dispatch => {
     if( userId === adminId) {
+      console.log('admin logged in')
       dispatch({ type: types.ADMIN_AUTHENTICATION });
     }
   }

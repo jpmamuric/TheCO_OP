@@ -27,3 +27,5 @@ facebook-config-ui
 mrt:paypal
 mrgalaxy:stripe
 react-meteor-data
+aldeed:collection2
+meteorhacks:picker

@@ -61,7 +61,7 @@ PaymentForm.propTypes = {
   cvc: PropTypes.string,
   exp_month: PropTypes.number,
   exp_year: PropTypes.number,
-  cardNumberInputChange: PropTypes.func 
+  cardNumberInputChange: PropTypes.func
 }
 
 const mapStateToProps = ({ payment }) => {

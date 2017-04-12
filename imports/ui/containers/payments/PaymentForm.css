@@ -1,4 +1,5 @@
 .payment_container {
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
@@ -48,6 +49,7 @@
 }
 
 .payment_submit_btn:hover,
-.payment_input:hover {
-  border: rgba(235, 151, 138, 1) 1px solid;
+.payment_input:hover,
+.payment_input:focus {
+  border: rgba(157, 105, 190, 1) 1px solid;
 }
