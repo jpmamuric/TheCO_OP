@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
+import * as actions          from '../../redux/actions/polls';
+
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import './AdminPoll.css';
@@ -13,12 +15,18 @@ class AdminPollItem extends Component{
     };
 
     this.handleOpen = this.handleOpen.bind(this);
+    this.handleVote = this.handleVote.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleOpen() {
     this.setState({ open: true });
+  }
+
+  handleVote() {
+    const { fetchIpAddress } = this.props;
+    fetchIpAddress();
   }
 
   handleCancel() {
@@ -35,6 +43,10 @@ class AdminPollItem extends Component{
     const { title } = this.props.poll;
     const { open } = this.state;
     const actions = [
+      <FlatButton
+        label='Vote'
+        onTouchTap={this.handleVote}
+      />,
       <FlatButton
         label='Cancel'
         onTouchTap={this.handleCancel}
@@ -64,4 +76,4 @@ class AdminPollItem extends Component{
   }
 }
 
-export default connect()(AdminPollItem);
+export default connect(null, actions)(AdminPollItem);

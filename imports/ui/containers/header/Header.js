@@ -83,7 +83,7 @@ class Header extends Component {
           onRequestChange={this.handleToggle}
         >
 
-          {/* App Links for Navigation */}
+          {/* App Links for SideDrawer Navigation */}
           <div className='sidebar_container flex_me'>
             <Link className='sidebar_link' to='/' onTouchTap={this.handleToggle} >Home</Link>
             {
@@ -103,8 +103,16 @@ class Header extends Component {
               ? null
               : <Link className='sidebar_link flex_me' to='/signin' onTouchTap={this.handleToggle}>Sign in </Link>
             }
+
+            {
+              authenticated
+              ? <div className='btn_logout header_link' onTouchTap={this.handleLogout}>Logout</div>
+              : null
+            }
           </div>
         </Drawer>
+
+        {/* App Links for Appbar Navigation */}
         { this.renderLinks() }
       </div>
     );

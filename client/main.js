@@ -29,6 +29,7 @@ if (User) {
 }
 
 if(Meteor.isClient) {
+  Stripe.setPublishableKey(Meteor.settings.public.StripePublishable);
   Meteor.startup(() => {
     render(
         <Provider store={store}>

@@ -1,4 +1,5 @@
 import { Mongo } from 'meteor/mongo'
+import { Meteor } from 'meteor/meteor'
 import { check } from 'meteor/check'
 
 export const Polls = new Mongo.Collection('polls');
@@ -66,5 +67,9 @@ Meteor.methods({
     }
 
     Polls.remove(pollId)
+  },
+
+  fetchIpAddress(ip) {
+    console.log(ip)
   }
 });

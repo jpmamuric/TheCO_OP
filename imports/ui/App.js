@@ -9,13 +9,11 @@ import Header               from './containers/header/Header.js';
 
 class App extends Component  {
   componentWillMount(){
-    Stripe.setPublishableKey(Meteor.settings.public.StripePublishable);
     const { runAdminCheck } = this.props;
     runAdminCheck()
   }
 
   componentWillReceiveProps(){
-    Stripe.setPublishableKey(Meteor.settings.public.StripePublishable);
     const { runAdminCheck } = this.props;
     runAdminCheck()
   }
