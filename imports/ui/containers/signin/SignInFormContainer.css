@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+.sign_in_message {
+  padding: 10px;
+}
+
 .signin_custom_form {
   flex-direction: column;
 }

@@ -18,6 +18,10 @@ if(Meteor.isServer) {
 
     // 1 SETUP PUBLICATION FOR POLLS (do not use fat arrow function)
 
+    Meteor.publish('nominations', function(){
+      return Polls.find({});
+    });
+
     Meteor.publish('polls', function(){
       return Polls.find({});
     });

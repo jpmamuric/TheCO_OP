@@ -1,6 +1,7 @@
 import * as types from '../actions/types';
 
 const initialState = {
+  secretCode: '',
   isAdmin: false,
   isSignin: true,
   authenticated: false,
@@ -22,11 +23,19 @@ export default (state = initialState, action) => {
       return { ...state, confirm: action.payload };
     case types.USERNAME_INPUT_CHANGE:
       return { ...state, username: action.payload };
+    case types.SECRET_CODE_INPUT_CHANGE:
+      return { ...state, secretCode: action.payload };
     case types.RESET_ON_NAVIGATION:
       return { ...state, email: '', password: '', username: '', confirm: '', message: '' };
+    case types.DISPATCH_MESSAGE:
+      return { ...state, message: action.payload };
     case types.SIGNIN_USER_SUCCESS:
-      return { ...state, authenticated: true, email: '', password: '', message: '', isSignin: true };
+      return { ...state, authenticated: true, secretCode: '', email: '', password: '', message: '', isSignin: true };
     case types.SIGNIN_USER_FAIL:
+      return { ...state, message: action.message };
+    case types.SIGNUP_USER_SUCCESS:
+      return { ...state, authenticated: true, email: '', password: '', message: '' };
+    case types.SIGNUP_USER_FAIL:
       return { ...state, message: action.message };
     case types.SIGNOUT_USER_SUCCESS:
       return { ...state, authenticated: false, message: '', isSignin: true, isAdmin: false};

@@ -10,8 +10,7 @@ class SignUpFormContainer extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      open: false,
-      message: ''
+      open: false
     };
 
     this.handleSignInForm = this.handleSignInForm.bind(this);
@@ -29,25 +28,15 @@ class SignUpFormContainer extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { username, email, password, confirm  } = this.props;
+    const { username, email, password, confirm, signUpUser } = this.props;
     if( password === confirm ) {
 
-      //Create Meteor User Account
-        Accounts.createUser({username, email, password}, function(err){
-          if (err) {
-            console.log(err.reason);
-          } else {
-            console.log('account successfully created');
-          }
-        })
-
+      signUpUser({ username, email, password });
 
     } else {
-      this.setState({ message: 'passwords do not match' });
+      console.log( 'unsuccessful signup');
     }
 
-    //Reset form on submit
-    // this.setState({ email: '', password: '', confirm: '', username: '' });
   }
 
   handleUsernameInput(e) {
@@ -71,8 +60,7 @@ class SignUpFormContainer extends Component {
   }
 
   render() {
-    const { username, email, password, confirm } = this.props;
-    const { message } = this.state;
+    const { username, email, password, confirm, message} = this.props;
     return (
       <div className='signup_container flex_me'>
         <button className='signup_facebook_btn'>
@@ -94,8 +82,8 @@ class SignUpFormContainer extends Component {
 }
 
 const mapStateToProps = ({auth}) => {
-  const { email, password, username, authenticated, confirm } = auth;
-  return { email, password, username, authenticated, confirm };
+  const { email, password, username, authenticated, confirm, message } = auth;
+  return { email, password, username, authenticated, confirm, message };
 }
 
 export default connect(mapStateToProps, actions)(SignUpFormContainer);

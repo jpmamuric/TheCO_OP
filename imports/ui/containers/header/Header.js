@@ -15,6 +15,7 @@ class Header extends Component {
       open: false
     };
 
+    this.handleNavStateReset = this.handleNavStateReset.bind(this);
     this.renderSignInForm = this.renderSignInForm.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
@@ -28,6 +29,11 @@ class Header extends Component {
   handleToggle() {
     const { resetStateOnNavigation } = this.props;
     !this.state.open ? this.setState({ open: true }) : this.setState({ open: false });
+    resetStateOnNavigation();
+  }
+
+  handleNavStateReset(){
+    const { resetStateOnNavigation } = this.props;
     resetStateOnNavigation();
   }
 
@@ -47,6 +53,7 @@ class Header extends Component {
             ? <Link className='header_link' to='/admin'>Admin</Link>
             : null
           }
+          <Link className='header_link' to='/nominate'>Nominate</Link>
           <Link className='header_link' to='/myaccount'>Dashboard</Link>
           <Link className='header_link' to='/polls'>Polls</Link>
           <div
@@ -72,7 +79,7 @@ class Header extends Component {
         {/* AppBar Header */}
         <div className='header_logo flex_me'>
           <img className='header_menu' src={'/images/menu.png'} onClick={this.handleToggle}/>
-          <Link className='header_link' to='/'> The Co_op </Link>
+          <Link className='header_link' to='/' onClick={this.handleNavStateReset}> The Co_op </Link>
         </div>
 
         {/* App SideDrawer */}

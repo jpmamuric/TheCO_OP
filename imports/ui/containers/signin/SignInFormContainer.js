@@ -11,11 +11,12 @@ class SignInFormContainer extends Component {
   constructor (props) {
     super(props);
 
-    this.handleOnEmailChange = this.handleOnEmailChange.bind(this);
-    this.handleOnPasswordChange = this.handleOnPasswordChange.bind(this);
-    this.handleOnSubmit = this.handleOnSubmit.bind(this);
-    this.handleFaceBookSignIn = this.handleFaceBookSignIn.bind(this);
-    this.handleSignUpForm = this.handleSignUpForm.bind(this);
+    this.handleOnEmailChange          = this.handleOnEmailChange.bind(this);
+    this.handleOnPasswordChange       = this.handleOnPasswordChange.bind(this);
+    this.handleOnSecretCodeChange     = this.handleOnSecretCodeChange.bind(this);
+    this.handleOnSubmit               = this.handleOnSubmit.bind(this);
+    this.handleFaceBookSignIn         = this.handleFaceBookSignIn.bind(this);
+    this.handleSignUpForm             = this.handleSignUpForm.bind(this);
   }
 
   handleOnEmailChange(e) {
@@ -28,6 +29,11 @@ class SignInFormContainer extends Component {
     passwordInputChange(e.target.value);
   }
 
+  handleOnSecretCodeChange(e){
+    const { secretCodeInputChange } = this.props;
+    secretCodeInputChange(e.target.value);
+  }
+
   handleOnSubmit(e) {
     e.preventDefault();
     const { email, password, signInUser } = this.props;
@@ -35,8 +41,12 @@ class SignInFormContainer extends Component {
   }
 
   handleFaceBookSignIn() {
-    const { signInUserFacebook } = this.props;
-    signInUserFacebook();
+    const { signInUserFacebook, dispatchMessage, secretCode } = this.props;
+    if( secretCode === Meteor.settings.public.secretCode) {
+      signInUserFacebook();
+    } else {
+      dispatchMessage('secret code required');
+    }
   }
 
   handleSignUpForm(){
@@ -45,7 +55,7 @@ class SignInFormContainer extends Component {
   }
 
   render() {
-    const { email, password, message, authenticated } = this.props;
+    const { email, password, message, authenticated, secretCode } = this.props;
     return (
       <div className='signin_container flex_me'>
 
@@ -54,10 +64,11 @@ class SignInFormContainer extends Component {
           <button className='signin_facebook_btn ' onTouchTap={this.handleFaceBookSignIn}>
             Sign In with Facebook
           </button>
+          <input  className="input_signin box_shadow" placeholder='secret code' value={secretCode} onChange={this.handleOnSecretCodeChange} />
 
           <p className='or'>  - OR - </p>
           <form onSubmit={this.handleOnSubmit} className="signin_form flex_me">
-            <span>{ message }</span>
+            <span className='sign_in_message'>{ message }</span>
             <input className='input_signin box_shadow' type='email' value={email} placeholder='email' onChange={this.handleOnEmailChange} required/>
             <input className='input_signin box_shadow' type='password' value={password} placeholder='password'
               onChange={this.handleOnPasswordChange} required/>
@@ -73,13 +84,13 @@ class SignInFormContainer extends Component {
 }
 
 const mapStateToProps = ({auth}) => {
-  const { email, password, message, authenticated } = auth;
-  return { email, password, message, authenticated };
+  const { email, password, message, authenticated, secretCode } = auth;
+  return { email, password, message, authenticated, secretCode };
 }
 
 export default connect(mapStateToProps, actions)(SignInFormContainer);
 
-// {/****** FACEBOOK LOGIN ******/}
+// {/****** FACEBOOK PREBUILT LOGIN ******/}
 // <div className='signin_facebook_form flex_me'>
 //   <LoginButtons visible/>
 // </div>
