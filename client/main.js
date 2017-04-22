@@ -14,6 +14,7 @@ injectTapEventPlugin();
 
 //import collections here to use Meteor Methods
 import  { Polls }  from '../imports/api/collections/polls';
+import  { Nominations }  from '../imports/api/collections/nominations';
 
 const store = createStore(
   reducers,

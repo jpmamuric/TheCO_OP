@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect }          from 'react-redux';
+
+import * as actions          from '../../redux/actions/polls';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
@@ -12,6 +15,7 @@ class PollItem extends Component {
     }
 
     this.handleClose = this.handleClose.bind(this);
+    this.handleVote = this.handleVote.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
@@ -23,10 +27,20 @@ class PollItem extends Component {
     this.setState({ open: false })
   }
 
+  handleVote() {
+    const { fetchIpAddress } = this.props;
+    fetchIpAddress();
+    this.setState({ open: false })
+  }
+
   render() {
     const { title, description } = this.props.poll;
     const { open } = this.state;
     const actions = [
+      <FlatButton
+        label='Vote'
+        onTouchTap={this.handleVote}
+      />,
       <FlatButton
         label="Close"
         primary={true}
@@ -53,4 +67,4 @@ class PollItem extends Component {
   }
 }
 
-export default PollItem;
+export default connect( null, actions)(PollItem);

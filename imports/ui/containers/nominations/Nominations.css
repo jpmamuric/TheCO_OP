@@ -1,0 +1,16 @@
+.nomination_container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nomination_submit_btn {
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  color: white;
+  padding: 1em;
+  font-size: 1em;
+  background-color: rgba(124, 89, 125, 1);
+
+}

@@ -44,9 +44,9 @@ class AdminPollForm extends Component {
       <div>
         { !message || message === '' ? null: <p>{message}</p>}
         <form onSubmit={this.handleOnSubmit} className='admin_poll_form flex_me'>
-          <input value={title} placeholder='title' onChange={this.handleTitleOnChange} required/>
+          <input className='input_signin' value={title} placeholder='title' onChange={this.handleTitleOnChange} required/>
           <textarea className='admin_form_textarea_description' value={description} placeholder='description' onChange={e=>descriptionInputChange(e.target.value)} required/>
-          <button type='submit'>Submit</button>
+          <button className='signin_submit_btn' type='submit'>Submit</button>
         </form>
       </div>
     );

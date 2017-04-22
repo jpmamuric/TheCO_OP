@@ -5,7 +5,7 @@ class NominationItem extends Component {
   render() {
     return (
       <div>
-        Nominations Item
+        Admin Nominations Item
       </div>
     );
   }

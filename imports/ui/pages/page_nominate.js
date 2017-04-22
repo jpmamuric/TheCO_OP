@@ -1,13 +1,13 @@
 import React from 'react';
 
-
-import NominationsList from '../containers/nominations/NominationsList';
+import NominationsForm from '../containers/nominations/NominationsForm';
 
 
 const NominatePage = () => {
   return (
     <div className='page_nominate flex_me'>
-      <NominationsList />
+      <NominationsForm />
+
     </div>
   );
 }

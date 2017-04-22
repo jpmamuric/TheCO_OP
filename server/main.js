@@ -1,9 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
-import { Polls }    from '../imports/api/collections/polls';
-
-
-
+import { Polls }        from '../imports/api/collections/polls';
+import { Nominations }  from '../imports/api/collections/nominations';
 
 if(Meteor.isServer) {
   Meteor.startup(() => {
@@ -18,8 +16,12 @@ if(Meteor.isServer) {
 
     // 1 SETUP PUBLICATION FOR POLLS (do not use fat arrow function)
 
-    Meteor.publish('nominations', function(){
-      return Polls.find({});
+    Meteor.publish('nominationsAll', function(){
+      return Nominations.find({});
+    });
+
+    Meteor.publish('nominations',function(){
+      return Nominations.find({ owner: this.userId });
     });
 
     Meteor.publish('polls', function(){

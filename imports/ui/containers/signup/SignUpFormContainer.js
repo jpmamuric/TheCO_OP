@@ -63,10 +63,6 @@ class SignUpFormContainer extends Component {
     const { username, email, password, confirm, message} = this.props;
     return (
       <div className='signup_container flex_me'>
-        <button className='signup_facebook_btn'>
-          Sign Up with Facebook
-        </button>
-        <p className='or'>  - OR - </p>
         <form className='signup_form flex_me' onSubmit={this.handleSubmit}>
           <span>{ message === '' ? null : message}</span>
           <input className='signup_input box_shadow' placeholder='username' type='text' value={username} onChange={this.handleUsernameInput} required />
