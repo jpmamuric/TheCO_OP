@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
-import * as actions          from '../../redux/actions/polls';
-
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import './Polls.css';
+
+import * as actions          from '../../redux/actions/polls';
 
 class PollItem extends Component {
   constructor(props) {

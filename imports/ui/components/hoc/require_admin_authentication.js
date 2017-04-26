@@ -7,14 +7,14 @@ export default (ComposedComponent) => {
     componentWillMount(){
       const { isAdmin } = this.props;
       if ( isAdmin === false ){
-        browserHistory.push('/');
+        browserHistory.push('/signin');
       }
     }
 
     componentWillUpdate(nextProps){
       const { isAdmin } = this.props;
       if( isAdmin === false) {
-        browserHistory.push('/');
+        browserHistory.push('/signin');
       }
     }
 

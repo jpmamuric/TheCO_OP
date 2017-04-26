@@ -1,0 +1,10 @@
+.clock {
+  color: rgba(236, 122, 138, 1);
+  font-size: 0.7em;
+}
+
+@media only screen and (min-width: 768px) {
+  .clock {
+    font-size: 1em;
+  }
+}

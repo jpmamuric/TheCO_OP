@@ -24,6 +24,7 @@ export const runAdminCheck = () => {
 
 // Change state on user navigation
 export const resetStateOnNavigation = () => ({ type: types.RESET_ON_NAVIGATION });
+export const resetNominationForm  = () => ({ type: types.RESET_NOMINATION_FORM_ON_NAVIGATION });
 
 export const renderForms = isSignIn => ({ type: types.RENDER_FORMS, payload: isSignIn });
 
@@ -33,6 +34,7 @@ export const dispatchMessage = message => {
     dispatch({ type: types.DISPATCH_MESSAGE , payload: message })
   }
 }
+
 
 //Signin User Meteor
 export const signInUser = ({ email, password}) => {

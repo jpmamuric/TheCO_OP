@@ -12,7 +12,7 @@ const SignInPage = (props) => {
     <div className='page_signin flex_me'>
       {
         isSignin ? <SignInFormContainer /> : <SignUpFormContainer />
-      }  
+      }
     </div>
   );
 }

@@ -1,13 +1,29 @@
-import React        from 'react';
+import React from 'react'
+import { connect } from 'react-redux';
 
-import './pages.css';
+import SignInFormContainer from '../containers/signin/SignInFormContainer';
 
-const HomePage = () => {
-  return (
-    <div className='page_home flex_me'>
-      <div>Home Page </div>
-    </div>
-  );
+const HomePage = (props) => {
+  const { authenticated } = props;
+  if (authenticated) {
+    return (
+      <div>
+        authenticated page
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        un authentiated page
+        <SignInFormContainer />
+      </div>
+    );
+  }
 }
 
-export default HomePage;
+const mapStateToProps = ({auth}) => {
+  const { authenticated } = auth;
+  return { authenticated };
+}
+
+export default connect(mapStateToProps)(HomePage);

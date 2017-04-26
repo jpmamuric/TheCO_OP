@@ -8,13 +8,19 @@ import PollItem from  './PollItem';
 const PollListContainer = (props) => {
   const { polls } = props;
   // console.log(polls)
-  
+
   return (
-    <div className='poll_list flex_me'>
-      {
-        polls.map(poll => <PollItem key={poll._id} poll={poll} />)
-      }
+    <div className='poll_list_container flex_me'>
+      <div>
+        <h1> Countdown Top 4 </h1>
+      </div>
+      <div className='poll_list flex_me'>
+        {
+          polls.map(poll => <PollItem key={poll._id} poll={poll} />)
+        }
+      </div>
     </div>
+
   );
 }
 

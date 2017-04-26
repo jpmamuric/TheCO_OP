@@ -7,7 +7,7 @@ import './UserContainer.css';
 
 const UserContainer = (props) => {
   const { user } = props;
-  console.log(user)
+  // console.log(user)
   return (
     <div className='user_container flex_me'>
       {
@@ -34,6 +34,7 @@ const UserContainer = (props) => {
                   <h3>How It Works</h3>
                   <HowItWorks />
                   <PaymentForm />
+                  <h3>My voting history</h3>
                 </div>
               </div>
             );

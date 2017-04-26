@@ -3,7 +3,7 @@ import { connect }           from 'react-redux';
 import { Link }              from 'react-router'
 
 import * as actions          from '../../redux/actions/auth.js';
-
+import ClockContainer        from '../clock/ClockContainer';
 import Drawer                from 'material-ui/Drawer';
 import FlatButton            from 'material-ui/FlatButton';
 import './Header.css';
@@ -27,14 +27,16 @@ class Header extends Component {
   }
 
   handleToggle() {
-    const { resetStateOnNavigation } = this.props;
+    const { resetStateOnNavigation, resetNominationForm } = this.props;
     !this.state.open ? this.setState({ open: true }) : this.setState({ open: false });
     resetStateOnNavigation();
+    resetNominationForm();
   }
 
   handleNavStateReset(){
-    const { resetStateOnNavigation } = this.props;
+    const { resetStateOnNavigation, resetNominationForm } = this.props;
     resetStateOnNavigation();
+    resetNominationForm();
   }
 
   handleLogout(){
@@ -53,9 +55,9 @@ class Header extends Component {
             ? <Link className='header_link' to='/admin'>Admin</Link>
             : null
           }
-          <Link className='header_link' to='/nominate'>Nominate</Link>
-          <Link className='header_link' to='/myaccount'>Dashboard</Link>
-          <Link className='header_link' to='/polls'>Polls</Link>
+          <Link className='header_link' to='/myaccount'onClick={this.handleNavStateReset}>Dashboard</Link>
+          <Link className='header_link' to='/nominate' onClick={this.handleNavStateReset}>Nominate</Link>
+          <Link className='header_link' to='/vote' onClick={this.handleNavStateReset}>Vote</Link>
           <div
             className='btn_logout header_link' onTouchTap={this.handleLogout}>
             Logout
@@ -72,14 +74,15 @@ class Header extends Component {
   }
 
   render() {
-    const { authenticated } = this.props;
+    const { authenticated, isAdmin} = this.props;
     return (
       <div className='header_container flex_me'>
 
         {/* AppBar Header */}
         <div className='header_logo flex_me'>
           <img className='header_menu' src={'/images/menu.png'} onClick={this.handleToggle}/>
-          <Link className='header_link' to='/' onClick={this.handleNavStateReset}> The Co_op </Link>
+          <Link className='header_link' to='/myaccount' onClick={this.handleNavStateReset}> The Co_op </Link>
+          <ClockContainer />
         </div>
 
         {/* App SideDrawer */}
@@ -92,17 +95,27 @@ class Header extends Component {
 
           {/* App Links for SideDrawer Navigation */}
           <div className='sidebar_container flex_me'>
-            <Link className='sidebar_link' to='/' onTouchTap={this.handleToggle} >Home</Link>
+            {
+              isAdmin
+              ? <Link className='sidebar_link' to='/admin' onTouchTap={this.handleToggle}>Admin</Link>
+              : null
+            }
             {
               !authenticated
               ? null
-              : <Link className='sidebar_link' to='/polls' onTouchTap={this.handleToggle}>Polls</Link>
+              : <Link className='sidebar_link' to='/nominate' onTouchTap={this.handleToggle}>Nominate</Link>
             }
 
             {
               !authenticated
               ? null
-              : <Link className='sidebar_link' to='/myaccount' onTouchTap={this.handleToggle}>Account</Link>
+              : <Link className='sidebar_link' to='/vote' onTouchTap={this.handleToggle}>Vote</Link>
+            }
+
+            {
+              !authenticated
+              ? null
+              : <Link className='sidebar_link' to='/myaccount' onTouchTap={this.handleToggle}>Dashboard</Link>
             }
 
             {

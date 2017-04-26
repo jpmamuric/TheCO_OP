@@ -2,31 +2,44 @@
   background-color: rgba(250, 250, 250, 1);
 }
 
+
 .page_home {
   background-color: rgba(250, 250, 250, 1);
 }
 
 .page_admin {
   padding-top: 25px;
-  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: row wrap;
 }
+
+.page_polls {
+  flex-direction: column;
+}
+
+.page_nominate {
+  margin: 1em;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
 
 .page_admin_poll_container {
   flex-direction: column;
 }
 
-.page_admin_nominations_container {
+.page_admin_nominations_container,
+.page_admin_poll_container {
   margin: 1em;
 }
 
-.page_polls,
-.page_nominate,
+
 .page_signin,
-.page_home,
 .page_admin,
+.page_home,
+.page_polls,
 .page_myaccount {
   justify-content: center;
-  align-items: center;
   padding: 25px;
 }
 

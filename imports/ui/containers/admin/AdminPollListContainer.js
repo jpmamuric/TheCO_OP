@@ -8,7 +8,7 @@ const AdminPollListContainer = (props) => {
   const { polls } = props;
   // console.log(polls)
   return (
-    <div>
+    <div className='admin_poll_list'>
       {
         polls.map(poll=> <AdminPollItem key={poll._id} poll={poll}/>)
       }

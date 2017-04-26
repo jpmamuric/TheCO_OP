@@ -1,7 +1,14 @@
+.poll_list_container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .poll_list {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  margin: 1em;
 }
 
 .poll_list_item {

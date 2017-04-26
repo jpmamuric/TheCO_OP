@@ -6,11 +6,12 @@ import AdminNominationsItem  from './AdminNominationsItem';
 
 const AdminNominationsList = (props) => {
   const { nominationsAll } = props;
-  console.log(nominationsAll)
   return (
     <div>
-      Admin Nomination List
-      <AdminNominationsItem />
+      <h3> All Nominations </h3>
+      {
+        nominationsAll.map( nomination => <AdminNominationsItem  key={nomination._id} nomination={ nomination }/> )
+      }
     </div>
   );
 }

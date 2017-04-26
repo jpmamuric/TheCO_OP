@@ -1,10 +1,36 @@
-.admin_poll_list_item {
+.admin_poll_list {
+  margin-top: 1em;
+}
+
+.admin_poll_list_item,
+.admin_nomination_list_item {
   background-color: white;
   margin-bottom: 5px;
-  padding: 30px;
-  width: 300px;
+  padding: 20px;
+  width: 310px;
   justify-content: space-between;
 }
+
+.admin_nomination_vetted {
+  background-color: rgba(46, 197, 138, 1); 
+}
+
+.admin_nomination_list_item p {
+  margin: 0;
+  padding: 0;
+}
+
+.admin_nomination_remove_list_item {
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin_nomination_remove_list_item:hover {
+  cursor: pointer;
+  color: rgba(230, 112, 112, 1);
+}
+
 
 .admin_delete_poll_title {
   color: rgba(234, 102, 92, 1);
@@ -24,6 +50,7 @@
 	height: 120px;
 	border: 3px solid #cccccc;
 	padding: 5px;
+  font-size: 1em;
 	font-family: Tahoma, sans-serif;
 	background-image: url(bg.gif);
 	background-position: bottom right;

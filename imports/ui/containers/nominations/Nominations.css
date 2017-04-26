@@ -14,3 +14,55 @@
   background-color: rgba(124, 89, 125, 1);
 
 }
+
+.nomination_list {
+  flex-direction: column;
+}
+
+.nomination_list_item {
+  justify-content: space-between;
+  background-color: white;
+  margin-bottom: 5px;
+  padding: 30px;
+  width: 300px;
+}
+
+.nomination_btns_container {
+
+}
+
+.nomination_list_view_item {
+  border-radius: 5px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nomination_list_remove_item {
+  padding: 10px;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nomination_list_remove_item:hover,
+.nomination_list_view_item:hover {
+  cursor: pointer;
+  color: rgba(230, 112, 112, 1);
+}
+
+
+.input_fullname_error {
+  border-radius: 3px;
+  border-color: rgba(230, 112, 112, 1);
+  font-size: 1em;
+  font-weight: 200;
+  margin-bottom: 10px;
+  padding: 1em;
+  width: 100%;
+  width: 300px;
+}
+
+.submit_error {
+  color: rgba(230, 112, 112, 1);
+}
