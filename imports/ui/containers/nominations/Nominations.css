@@ -31,6 +31,16 @@
 
 }
 
+.nomintation_vetted {
+  font-size: 1.5em;
+  color: rgba(46, 197, 138, 1) !important;
+}
+
+.nomination_postedby,
+.nomination_website {
+  color: rgba(157, 105, 190, 1);
+}
+
 .nomination_list_view_item {
   border-radius: 5px;
   padding: 10px;

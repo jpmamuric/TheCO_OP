@@ -16,7 +16,7 @@ class NominationItem extends Component {
                 <p>{ name }</p>
                 <p>{ websiteUrl }</p>
               </div>
-              <div className='admin_nomination_remove_list_item flex_me'> X </div>
+
             </div>
           )
           : (
@@ -25,7 +25,7 @@ class NominationItem extends Component {
                 <p>{ name }</p>
                 <p>{ websiteUrl }</p>
               </div>
-              <div className='admin_nomination_remove_list_item flex_me'> X </div>
+
             </div>
           )
         }
@@ -37,3 +37,7 @@ class NominationItem extends Component {
 }
 
 export default NominationItem;
+
+// <div className='admin_nomination_remove_list_item flex_me'> X </div>
+
+// <div className='admin_nomination_remove_list_item flex_me'> X </div>

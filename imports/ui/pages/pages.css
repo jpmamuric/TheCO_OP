@@ -18,6 +18,7 @@
 }
 
 .page_nominate {
+
   margin: 1em;
   justify-content: space-around;
   flex-flow: wrap;
@@ -33,7 +34,6 @@
   margin: 1em;
 }
 
-
 .page_signin,
 .page_admin,
 .page_home,
@@ -45,4 +45,10 @@
 
 .myaccount_container {
   background-color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  .page_signin {
+
+  }
 }

@@ -6,6 +6,7 @@ import { Nominations }  from '../imports/api/collections/nominations';
 if(Meteor.isServer) {
   Meteor.startup(() => {
     BrowserPolicy.content.allowOriginForAll("*.stripe.com/")
+    BrowserPolicy.content.allowOriginForAll( '*.youtube.com' );
     BrowserPolicy.content.allowFontOrigin("data:");
     BrowserPolicy.content.allowOriginForAll( '*.typekit.net' );
     BrowserPolicy.content.allowFontDataUrl( '*.typekit.net' );
@@ -15,9 +16,12 @@ if(Meteor.isServer) {
     // console.log(adminId, stripeSk)
 
     // 1 SETUP PUBLICATION FOR POLLS (do not use fat arrow function)
-
     Meteor.publish('nominationsAll', function(){
       return Nominations.find({});
+    });
+
+    Meteor.publish('nominationsVetted', function(){
+      return Nominations.find({ owner: this.userId });
     });
 
     Meteor.publish('nominations',function(){

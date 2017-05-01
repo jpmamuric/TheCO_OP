@@ -21,7 +21,7 @@ class PaymentForm extends Component {
     const { number, cvc, exp_month, exp_year, generateStripeToken } = this.props;
 
     console.log( { number, cvc, exp_month, exp_year })
-    // generateStripeToken({ number, cvc, exp_month, exp_year });
+    generateStripeToken({ number, cvc, exp_month, exp_year });
   }
 
   handleCardLink(){

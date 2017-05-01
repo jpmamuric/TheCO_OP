@@ -56,7 +56,11 @@ class Header extends Component {
             : null
           }
           <Link className='header_link' to='/myaccount'onClick={this.handleNavStateReset}>Dashboard</Link>
-          <Link className='header_link' to='/nominate' onClick={this.handleNavStateReset}>Nominate</Link>
+          {
+            !isAdmin
+            ?  <Link className='header_link' to='/nominate' onClick={this.handleNavStateReset}>Nominate</Link>
+            : null
+          }
           <Link className='header_link' to='/vote' onClick={this.handleNavStateReset}>Vote</Link>
           <div
             className='btn_logout header_link' onTouchTap={this.handleLogout}>

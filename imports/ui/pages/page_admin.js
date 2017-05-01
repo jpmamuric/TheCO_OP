@@ -15,6 +15,11 @@ const AdminPage = () => {
         <AdminPollListContainer />
       </div>
       <div className='page_admin_nominations_container'>
+        <div>
+          <input placeholder='search nomination'/>
+          <button>Search</button>
+        </div>
+
         <AdminNominationsList />
       </div>
     </div>

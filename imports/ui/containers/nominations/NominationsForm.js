@@ -17,10 +17,10 @@ class NominationsForm extends Component {
   }
 
   handleSubmit(e){
-    const { name , websiteUrl, fullName, description, createNomination, user } = this.props;
-    const userName = user[0];
+    e.preventDefault();
+    const { name , websiteUrl, fullName, description, createNomination } = this.props;
 
-    if( fullName === userName.profile.name ) {
+    if( fullName === Meteor.user().username || fullName === Meteor.user().profile.name ) {
       e.preventDefault();
       this.setState({ messageSubmit: '', fullNameClass: 'input_signin' });
       createNomination({ name , websiteUrl, fullName, description });

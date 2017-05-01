@@ -4,6 +4,8 @@ node_modules/
 .DS_Store
 .env
 
+public/images/
+
 config.js
 settings.json
 settings-production.json

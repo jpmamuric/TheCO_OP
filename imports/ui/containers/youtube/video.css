@@ -1,0 +1,24 @@
+.iframe {
+  display: none;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .video_container {
+    margin: 0 1em;
+  }
+
+  .iframe {
+    display: flex;
+    width: 560px !important;
+    height: 415px !important;
+  }
+
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .iframe {
+    
+  }
+}
