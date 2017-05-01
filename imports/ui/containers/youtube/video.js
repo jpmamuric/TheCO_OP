@@ -15,12 +15,13 @@ class YoutubeVideo extends Component {
     if(!selectedVideo) {
       return null;
     } else {
-      console.log(selectedVideo)
+      // console.log(selectedVideo)
     }
     return (
-      <div className='video_container'>
-        <iframe src="http://www.youtube.com/embed/W7qWa52k-nE" className='iframe'
-          frameBorder="0" allowFullScreen></iframe>
+      <div className='video_container '>
+        <div className='video_filler_img flex_me'>
+          Video goes Here
+        </div>
       </div>
     );
   }

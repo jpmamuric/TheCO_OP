@@ -61,8 +61,7 @@ class PollItem extends Component {
           onRequestClose={this.handleClose}
           autoScrollBodyContent={true}
         >
-        <iframe src="http://www.youtube.com/embed/W7qWa52k-nE" className='iframe_modal'
-          frameBorder="0" allowFullScreen></iframe>
+        <div className='iframe_modal'> Video Goes Here</div>
         { description }
         </Dialog>
       </div>
@@ -71,3 +70,6 @@ class PollItem extends Component {
 }
 
 export default connect( null, actions)(PollItem);
+
+// <iframe src="http://www.youtube.com/embed/W7qWa52k-nE" className='iframe_modal'
+//   frameBorder="0" allowFullScreen></iframe>
