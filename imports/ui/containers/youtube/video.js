@@ -19,9 +19,8 @@ class YoutubeVideo extends Component {
     }
     return (
       <div className='video_container '>
-        <div className='video_filler_img flex_me'>
-          Video goes Here
-        </div>
+        <iframe src="http://www.youtube.com/embed/W7qWa52k-nE" className='video_filler_img'
+          frameBorder="0" allowFullScreen></iframe>
       </div>
     );
   }
@@ -33,3 +32,8 @@ const mapStateToProps = ({ youtube }) => {
 }
 
 export default connect(mapStateToProps, actions)(YoutubeVideo);
+
+
+// <div className='video_filler_img flex_me'>
+//   Video goes Here
+// </div>

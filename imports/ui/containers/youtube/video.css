@@ -6,8 +6,6 @@
 @media only screen and (min-width: 768px) {
   .video_container {
     margin: 0 1em;
-    border: 1px solid black;
-
   }
 
   .video_filler_img {

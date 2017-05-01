@@ -37,3 +37,27 @@ export const removeNomination = nominationId => {
     });
   }
 }
+
+export const vetNomination = nominationId => {
+  return dispatch => {
+    Meteor.call('vetNomination', { nominationId }, err => {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log('successfully vetted nomination');
+      }
+    });
+  }
+}
+
+export const unVetNomination = nominationId => {
+  return dispatch => {
+    Meteor.call('unvetNomination', { nominationId }, err => {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log('successfully unvetted nomination');
+      }
+    });
+  }
+}

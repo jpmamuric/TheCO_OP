@@ -11,8 +11,13 @@
   justify-content: space-between;
 }
 
+.admin_warning_options {
+  font-size: 1.5em;
+  color: rgba(255, 154, 62, 1);
+}
+
 .admin_nomination_vetted {
-  background-color: rgba(46, 197, 138, 1); 
+  background-color: rgba(46, 197, 138, 1);
 }
 
 .admin_nomination_list_item p {
