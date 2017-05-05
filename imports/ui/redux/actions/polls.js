@@ -24,3 +24,39 @@ export const fetchIpAddress = () => {
       });
   }
 }
+
+export const createPoll = ({ title, description }) => {
+  return dispatch => {
+    if ( title !== '' && description !== '' ) {
+      Meteor.call('addPoll',  { title, description } , (err, res)=> {
+        if (err) {
+          console.log(err);
+          dispatch({ type:types.POLL_SUBMIT_FAIL, payload: 'Oops, something went wrong' });
+        } else {
+          dispatch({ type:types.POLL_SUBMIT_SUCCESS, payload: 'poll was successfully submitted!.' });
+        }
+      });
+    }
+  }
+}
+
+export const votePoll = (pollId, title ) => {
+  return dispatch => {
+    Meteor.call('votePoll', { pollId }, err => {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log( 'successfully voted for Poll' );
+      }
+    });
+
+    Meteor.call('addVoteHistory', { title }, err => {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log( 'successfully added voting history' );
+      }
+    });
+    
+  }
+}

@@ -3,8 +3,8 @@ import * as types from '../actions/types';
 const initialState = {
   number: '',
   cvc: '',
-  exp_month: 0,
-  exp_year: 0,
+  exp_month: '',
+  exp_year:'',
 }
 
 export default (state = initialState, action) => {

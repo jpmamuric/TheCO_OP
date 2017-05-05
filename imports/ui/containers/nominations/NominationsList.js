@@ -19,7 +19,7 @@ const NominationsList = (props) => {
         }
       </div>
       <div>
-        <h3> Vetted Nominations </h3>
+        <h3> My Vetted Nominations </h3>
           {
             nominationsVetted.map(nominee => {
               if(nominee.vetted === true ) {

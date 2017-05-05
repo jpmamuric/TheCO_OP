@@ -99,10 +99,10 @@ class AdminNominationItem extends Component {
 
             <button onClick={this.handleConfirm}>Confirm</button>
             <button onClick={this.handleUnConfirm}>UnConfirm</button>
-            <div>POSTED BY: {fullName}</div>
-            <div>WEBSITE: {websiteUrl}</div>
-            <div>TOTAL VOTES: {totalVotes}</div>
-            <div>DESCRITION:
+            <div>Posted By: {fullName}</div>
+            <div>Website: {websiteUrl}</div>
+            <div>Total Votes: {totalVotes}</div>
+            <div>Description:
               <div>
                 {description}
               </div>

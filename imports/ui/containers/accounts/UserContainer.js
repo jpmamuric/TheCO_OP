@@ -1,8 +1,9 @@
 import React from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import HowItWorks   from '../../components/HowItWorksComponent/HowItWorks'
-import PaymentForm  from '../payments/PaymentForm'
+import HowItWorks             from '../../components/HowItWorksComponent/HowItWorks'
+import PaymentForm            from '../payments/PaymentForm'
+import VotingHistoryContainer from '../history/VotingHistory'
 import './UserContainer.css';
 
 const UserContainer = (props) => {
@@ -35,6 +36,7 @@ const UserContainer = (props) => {
                   <HowItWorks />
                   <PaymentForm />
                   <h3>My voting history</h3>
+                  <VotingHistoryContainer />
                 </div>
               </div>
             );

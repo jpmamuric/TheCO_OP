@@ -91,5 +91,20 @@ Meteor.methods({
     }
 
     Nominations.update(nominationId, { $set: {vetted: false }})
+  },
+
+  voteNomination({ nominationId }) {
+    const username = Meteor.user().username;
+    check(nominationId, String);
+
+    new SimpleSchema({
+      nominationId : { type: String }
+    }).validate({nominationId});
+
+    if (! Meteor.userId()) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    Nominations.update(nominationId, { $inc: { totalVotes: 1 }})
   }
 });

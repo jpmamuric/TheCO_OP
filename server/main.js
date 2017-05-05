@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 
-import { Polls }        from '../imports/api/collections/polls';
-import { Nominations }  from '../imports/api/collections/nominations';
+import { Polls }          from '../imports/api/collections/polls';
+import { VotingHistory }  from '../imports/api/collections/history';
+import { Nominations }    from '../imports/api/collections/nominations';
 
 if(Meteor.isServer) {
   Meteor.startup(() => {
@@ -30,6 +31,10 @@ if(Meteor.isServer) {
 
     Meteor.publish('polls', function(){
       return Polls.find({});
+    });
+
+    Meteor.publish('votingHistory', function(){
+      return VotingHistory.find({ owner: this.userId });
     });
 
     Meteor.publish('userData', function (){

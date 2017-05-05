@@ -31,7 +31,7 @@ class AdminPollItem extends Component{
   }
 
   render() {
-    const { title } = this.props.poll;
+    const { title, totalVotes } = this.props.poll;
     const { open } = this.state;
     const actions = [
       <FlatButton
@@ -49,6 +49,7 @@ class AdminPollItem extends Component{
     return (
       <div className='admin_poll_list_item flex_me'>
         {title}
+        <span> { totalVotes }</span>
         { !open ? <button onClick={this.handleOpen}> X </button>: null }
         <Dialog
           title="Delete Warning!"

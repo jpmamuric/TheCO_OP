@@ -13,23 +13,9 @@ class AdminPollForm extends Component {
   }
 
   handleOnSubmit(e){
-    const { title, description} = this.props
+    const { title, description, createPoll } = this.props
     e.preventDefault();
-
-    if ( title !== '' && description !== '') {
-      Meteor.call('addPoll',  { title, description } , (err, res)=> {
-        if (err) {
-          console.log(err);
-          this.setState({ message: 'error creating poll' });
-        } else {
-          console.log('success!')
-
-          //add action here to reset title and desciption on success
-          this.setState({ message: 'Success' });
-        }
-      });
-    }
-
+    createPoll({ title, description });
   }
 
   handleTitleOnChange(e){
@@ -38,7 +24,7 @@ class AdminPollForm extends Component {
   }
 
   render(){
-    const { title, description, descriptionInputChange } = this.props;
+    const { title, description, descriptionInputChange, submitMessage } = this.props;
     const { message } = this.state;
     return (
       <div>
@@ -47,6 +33,7 @@ class AdminPollForm extends Component {
           <input className='input_signin' value={title} placeholder='title' onChange={this.handleTitleOnChange} required/>
           <textarea className='admin_form_textarea_description' value={description} placeholder='description' onChange={e=>descriptionInputChange(e.target.value)} required/>
           { !message || message === '' ? null: <p>{message}</p>}
+          { submitMessage !== '' ? <p> { submitMessage }</p>: null}
           <button className='signin_submit_btn' type='submit'>Submit</button>
         </form>
       </div>
@@ -56,8 +43,8 @@ class AdminPollForm extends Component {
 }
 
 const mapStateToProps = ({ polls }) => {
-  const { title, description } = polls;
-  return { title, description };
+  const { title, description, submitMessage } = polls;
+  return { title, description, submitMessage };
 }
 
 export default connect(mapStateToProps, actions)(AdminPollForm);

@@ -27,6 +27,21 @@
   width: 300px;
 }
 
+.nomination_vetted_list_container {
+  margin-right: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nomination_vetted_list_item{
+  background-color: white;
+  margin-bottom: 5px;
+  padding: 20px;
+  width: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
 .nomination_btns_container {
 
 }
@@ -75,4 +90,24 @@
 
 .submit_error {
   color: rgba(230, 112, 112, 1);
+}
+
+
+/* NOMINATIONS VETTED VOTING CONTAINER */
+
+.vetted_voting_container {
+  margin: 1em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.vetted_voting_list {
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.nomination_vetted_list_item:hover {
+  cursor: pointer;
 }

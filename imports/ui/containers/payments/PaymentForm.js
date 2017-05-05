@@ -1,5 +1,4 @@
 import React, { Component }  from 'react';
-import PropTypes             from 'prop-types';
 import { connect }           from 'react-redux';
 
 import * as actions         from '../../redux/actions/payment';
@@ -57,13 +56,6 @@ class PaymentForm extends Component {
 
 }
 
-PaymentForm.propTypes = {
-  number: PropTypes.string,
-  cvc: PropTypes.string,
-  exp_month: PropTypes.number,
-  exp_year: PropTypes.number,
-  cardNumberInputChange: PropTypes.func
-}
 
 const mapStateToProps = ({ payment }) => {
   const { number, cvc, exp_month, exp_year } = payment;

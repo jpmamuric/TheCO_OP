@@ -61,3 +61,15 @@ export const unVetNomination = nominationId => {
     });
   }
 }
+
+export const voteNomination = nominationId => {
+  return dispatch => {
+    Meteor.call('voteNomination', { nominationId }, err => {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log('successfully voted for nomination');
+      }
+    });
+  }
+}
