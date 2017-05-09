@@ -3,7 +3,8 @@ import * as types from '../actions/types';
 const initialState = {
   title: '',
   description: '',
-  submitMessage: ''
+  submitMessage: '',
+  disablePolls: false
 }
 
 export default (state = initialState, action) => {
@@ -16,6 +17,8 @@ export default (state = initialState, action) => {
       return { ...state, submitMessage: action.payload, title: '', description: '', submitMessage: '' };
     case types.POLL_SUBMIT_FAIL:
       return { ...state, submitMessage: action.payload,  submitMessage: action.payload };
+    case types.POLL_DISABLE:
+      return { ...state, disablePolls: true };
     default:
       return state;
   }

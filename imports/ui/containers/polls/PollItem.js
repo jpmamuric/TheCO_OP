@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
+
+
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import './Polls.css';
@@ -12,6 +14,7 @@ class PollItem extends Component {
     super(props);
     this.state = {
       open: false,
+      disableVote: false,
       submitVote: false,
       submitMessage: ''
     };
@@ -26,15 +29,21 @@ class PollItem extends Component {
   }
 
   handleClose(){
-    this.setState({ open: false, submitVote: false, submitMessage: '' })
+    this.setState({ open: false, submitVote: false, submitMessage: '', disableVote: false })
   }
 
   handleVote() {
-    const { fetchIpAddress, votePoll } = this.props;
+    const { fetchIpAddress, votePoll, disablePolls} = this.props;
+
     const { _id, title } = this.props.poll;
 
     //Vote for Poll
-    votePoll( _id, title );
+    if (disablePolls) {
+      this.setState({  disableVote: true });
+    } else {
+      votePoll( _id, title );
+    }
+
 
     //Fetch Ip address so voter may oly vote once
     fetchIpAddress();
@@ -83,12 +92,27 @@ class PollItem extends Component {
         >
         Thank you for voting.
         </Dialog>
+
+        <Dialog
+          title={`Voting Top 4 is Now Over`}
+          actions={actions}
+          modal={true}
+          open={this.state.disableVote}
+          onRequestClose={this.handleClose}
+        >
+         Polls are now Closed, Thank you for voting.
+        </Dialog>
       </div>
     );
   }
 }
 
-export default connect( null, actions)(PollItem);
+const mapStateToProps = ({ polls }) => {
+  const { disablePolls } = polls;
+  return { disablePolls };
+}
+
+export default connect( mapStateToProps, actions)(PollItem);
 
 // <iframe src="http://www.youtube.com/embed/W7qWa52k-nE" className='iframe_modal'
 //   frameBorder="0" allowFullScreen></iframe>

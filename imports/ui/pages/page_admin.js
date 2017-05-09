@@ -1,4 +1,4 @@
-import React from 'react'
+import React          from 'react'
 
 import './pages.css'
 
@@ -7,7 +7,7 @@ import AdminPollForm from '../containers/admin/AdminPollForm'
 
 import AdminNominationsList from '../containers/admin/AdminNominationsList';
 
-const AdminPage = () => {
+const AdminPage = (props) => {
   return (
     <div className='page_admin flex_me'>
       <div className='page_admin_poll_container flex_me'>
@@ -15,11 +15,6 @@ const AdminPage = () => {
         <AdminPollListContainer />
       </div>
       <div className='page_admin_nominations_container'>
-        <div>
-          <input placeholder='search nomination'/>
-          <button>Search</button>
-        </div>
-
         <AdminNominationsList />
       </div>
     </div>

@@ -4,6 +4,7 @@ import { Link }              from 'react-router'
 
 import * as actions          from '../../redux/actions/auth.js';
 import ClockContainer        from '../clock/ClockContainer';
+import CountDownContainer    from '../clock/CountDownContainer';
 import Drawer                from 'material-ui/Drawer';
 import FlatButton            from 'material-ui/FlatButton';
 import './Header.css';
@@ -86,8 +87,11 @@ class Header extends Component {
         <div className='header_logo flex_me'>
           <img className='header_menu' src={'/images/menu.png'} onClick={this.handleToggle}/>
           <Link className='header_link' to='/myaccount' onClick={this.handleNavStateReset}> The Co_op </Link>
-          <ClockContainer />
+
+
         </div>
+
+        <CountDownContainer />
 
         {/* App SideDrawer */}
         <Drawer
@@ -149,3 +153,5 @@ const mapStateToProps = ({auth}) => {
 }
 
 export default connect(mapStateToProps, actions)(Header);
+
+  // <ClockContainer />

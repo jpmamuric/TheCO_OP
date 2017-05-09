@@ -30,7 +30,8 @@
 }
 
 .page_admin_nominations_container,
-.page_admin_poll_container {
+.page_admin_poll_container,
+.page_admin_switch_container {
   margin: 1em;
 }
 

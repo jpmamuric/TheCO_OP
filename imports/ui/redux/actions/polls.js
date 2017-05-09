@@ -57,6 +57,12 @@ export const votePoll = (pollId, title ) => {
         console.log( 'successfully added voting history' );
       }
     });
-    
+
+  }
+}
+
+export const disableVoting = () => {
+  return dispatch => {
+    dispatch({ type: types.POLL_DISABLE });
   }
 }

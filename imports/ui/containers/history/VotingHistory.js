@@ -8,7 +8,7 @@ import VotingHistoryItem   from './VotingHistoryitem';
 
 const VotingHistoryContainer = (props) => {
   const { history } = props;
-  console.log(history)
+  // console.log(history)
   return (
     <div>
       <div>

@@ -3,8 +3,21 @@
   font-size: 0.7em;
 }
 
+.clock_countdown {
+  display: none;
+}
+
+
 @media only screen and (min-width: 768px) {
   .clock {
     font-size: 1em;
+  }
+
+  .clock_countdown {
+    display: inline-flex;
+  }
+
+  .clock_countdown_item {
+    padding: 0 10px;
   }
 }

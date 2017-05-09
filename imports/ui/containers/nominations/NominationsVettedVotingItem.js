@@ -11,7 +11,8 @@ class NominationsVettedVotingItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      disableVote: false
     };
 
     this.handleOpen = this.handleOpen.bind(this);
@@ -24,13 +25,19 @@ class NominationsVettedVotingItem extends Component {
   }
 
   handleClose(){
-    this.setState({ open: false });
+    this.setState({ open: false, disableVote: false });
   }
 
   handleVote(){
     const { _id } = this.props.nominee;
-    this.props.voteNomination(_id)
-    this.setState({ open: false });
+    const { disablePolls } = this.props;
+    if(disablePolls) {
+      this.setState({  disableVote: true, open: false });
+    } else {
+      this.props.voteNomination(_id)
+      this.setState({ open: false });
+    }
+
   }
 
   render() {
@@ -66,9 +73,25 @@ class NominationsVettedVotingItem extends Component {
         </div>
 
         </Dialog>
+
+        <Dialog
+          title='Nominations Are Now Closed'
+          actions={actions}
+          modal={false}
+          open={this.state.disableVote}
+          onRequestClose={this.handleClose}
+        >
+          Thank You for voting
+
+        </Dialog>
        </div>
     );
   }
 }
 
-export default connect(null, actions)(NominationsVettedVotingItem);
+const mapStateToProps = ({ polls }) => {
+  const { disablePolls } = polls;
+  return { disablePolls };
+}
+
+export default connect(mapStateToProps, actions)(NominationsVettedVotingItem);

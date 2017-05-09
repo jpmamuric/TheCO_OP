@@ -1,16 +1,34 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
 import NominationsVettedVotingList from '../containers/nominations/NominationsVettedVotingList'
 import PollListContainer from '../containers/polls/PollListContainer'
 
 
-const PollsPage = () => {
-  return (
-    <div className='page_polls flex_me'>
-      <PollListContainer />
-      <NominationsVettedVotingList />
-    </div>
-  );
+const PollsPage = (props) => {
+  const { disablePolls } = props;
+
+  if(disablePolls) {
+    return (
+      <div className='page_polls flex_me'>
+        Nominations Are Now Over
+      </div>
+    );
+  } else {
+    return (
+      <div className='page_polls flex_me'>
+        <NominationsVettedVotingList />
+      </div>
+    );
+  }
 }
 
-export default PollsPage;
+const mapStateToProps = ({ polls }) => {
+  const { disablePolls } = polls;
+  return { disablePolls };
+}
+
+export default connect(mapStateToProps)(PollsPage);
+
+
+// <PollListContainer />
