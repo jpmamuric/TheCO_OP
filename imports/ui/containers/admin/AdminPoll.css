@@ -36,6 +36,10 @@
   color: rgba(230, 112, 112, 1);
 }
 
+.admin_countdown_container {
+  margin-top: 1em;
+}
+
 
 .admin_delete_poll_title {
   color: rgba(234, 102, 92, 1);

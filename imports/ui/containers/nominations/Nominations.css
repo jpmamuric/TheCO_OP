@@ -1,6 +1,6 @@
 .nomination_container {
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -37,7 +37,7 @@
   background-color: white;
   margin-bottom: 5px;
   padding: 20px;
-  width: 250px;
+  width: 300px;
   justify-content: center;
   align-items: center;
 }
@@ -51,9 +51,17 @@
   color: rgba(46, 197, 138, 1) !important;
 }
 
+.nomination_list_item_url {
+  font-size: 12px;
+}
+
 .nomination_postedby,
 .nomination_website {
   color: rgba(157, 105, 190, 1);
+}
+
+.nomination_website a {
+  cursor: pointer;
 }
 
 .nomination_list_view_item {

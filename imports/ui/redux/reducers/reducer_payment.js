@@ -17,6 +17,8 @@ export default (state = initialState, action) => {
       return { ...state, exp_month: parseFloat(action.payload) };
     case types.EXP_YEAR_INPUT_CHANGE:
       return { ...state, exp_year: parseFloat(action.payload) };
+    case types.GENERATE_TOKEN_SUCCESS:
+      return { ...state, number: '', cvc: '', exp_month: '', exp_year: '' }
     default:
       return state;
   }

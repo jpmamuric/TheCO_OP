@@ -1,8 +1,9 @@
-import React from 'react'
+import React       from 'react'
 import { connect } from 'react-redux';
 
+import PollWinnerContainer         from '../containers/polls/PollWinner'
 import NominationsVettedVotingList from '../containers/nominations/NominationsVettedVotingList'
-import PollListContainer from '../containers/polls/PollListContainer'
+import PollListContainer           from '../containers/polls/PollListContainer'
 
 
 const PollsPage = (props) => {
@@ -12,6 +13,7 @@ const PollsPage = (props) => {
     return (
       <div className='page_polls flex_me'>
         Nominations Are Now Over
+        <PollWinnerContainer />
       </div>
     );
   } else {

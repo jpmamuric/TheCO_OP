@@ -1,3 +1,9 @@
+.poll_winner_container {
+  background-color: white;
+  font-size: 24px;
+  padding: 1em;
+}
+
 .poll_list_container {
   flex-direction: column;
   align-items: center;

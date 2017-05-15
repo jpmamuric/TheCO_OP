@@ -46,7 +46,7 @@ class NominationItemVetted extends Component {
       <div className='nomination_list_item flex_me box_shadow' >
         <div >
           <div>{name}</div>
-          <div>{websiteUrl}</div>
+          <div className='nomination_list_item_url'>{websiteUrl}</div>
         </div>
         <div className='nomination_btns_container flex_me'>
           <div className='nomination_list_view_item' onClick={this.handleOnClick}> View </div>
@@ -62,7 +62,7 @@ class NominationItemVetted extends Component {
         <div>
           { vetted ? <div className='nomintation_vetted'> Vetted </div> : null }
           <div>Posted By: <span className='nomination_postedby'>{ fullName }</span></div>
-          <div>Website: <span className='nomination_website'>{ websiteUrl }</span></div>
+          <div>Website: {websiteUrl}</div>
           <p>Description: { description }</p>
         </div>
         </Dialog>
