@@ -20,10 +20,22 @@ class CountDownClock extends Component {
   }
 
   componentWillMount(){
-    const { deadline, disableVoting} = this.props;
+    const { deadline, disableVoting, enableVoting } = this.props;
     this.getDeadline(deadline)
     if(( Date.parse(deadline) - Date.parse( new Date() )) <= 0 ) {
       disableVoting();
+    } else {
+      enableVoting();
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+      const { disableVoting, enableVoting } = this.props;
+    this.getDeadline(nextProps.deadline);
+    if(( Date.parse(nextProps.deadline) - Date.parse( new Date() )) <= 0 ) {
+      disableVoting();
+    } else {
+      enableVoting();
     }
   }
 

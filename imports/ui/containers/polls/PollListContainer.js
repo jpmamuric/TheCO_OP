@@ -12,7 +12,7 @@ const PollListContainer = (props) => {
   return (
     <div className='poll_list_container flex_me'>
       <div>
-        <h1> Countdown Top 4 Nominations</h1>
+        <h1> Vote </h1>
       </div>
       <div className='poll_list flex_me'>
         {

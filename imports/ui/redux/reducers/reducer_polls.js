@@ -19,6 +19,8 @@ export default (state = initialState, action) => {
       return { ...state, submitMessage: action.payload,  submitMessage: action.payload };
     case types.POLL_DISABLE:
       return { ...state, disablePolls: true };
+    case types.POLL_ENABLE:
+      return { ...state, disablePolls: false };
     default:
       return state;
   }

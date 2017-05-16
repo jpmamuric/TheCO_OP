@@ -13,7 +13,7 @@ export const dispatchNominationMessage = message => ({ type: types.DISPATCH_NOMI
 
 export const createNomination = ({ name, websiteUrl, fullName, description }) => {
   return dispatch => {
-    if ( name !== '' && description !== '' && websiteUrl !== '' && fullName !== '') {
+    if ( name !== '' && description !== '' && websiteUrl !== '' ) {
       Meteor.call('addNomination',  { name, websiteUrl, fullName, description } , (err, res)=> {
         if (err) {
           console.log(err);

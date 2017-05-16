@@ -69,7 +69,6 @@ class NominationsVettedVotingItem extends Component {
           <div >Posted By: <span className='nomination_postedby'>{ fullName }</span></div>
           <div >Website: { websiteUrl }</div>
           <p>Description: { description }</p>
-          <button onTouchTap={this.handleVote}> vote </button>
         </div>
 
         </Dialog>

@@ -66,3 +66,9 @@ export const disableVoting = () => {
     dispatch({ type: types.POLL_DISABLE });
   }
 }
+
+export const enableVoting = () => {
+  return dispatch => {
+    dispatch({ type: types.POLL_ENABLE });
+  }
+}

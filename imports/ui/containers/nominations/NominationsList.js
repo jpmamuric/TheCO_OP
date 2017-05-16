@@ -13,7 +13,7 @@ const NominationsList = (props) => {
   return (
     <div className='nomination_list flex_me'>
       <div>
-        <h3> My Nominations </h3>
+        <h3> All My Nominations </h3>
         {
           nominations.map(nomination => <NominationItem key={nomination._id} nomination={nomination} />)
         }

@@ -71,7 +71,7 @@ class AdminNominationItem extends Component {
                 <p>{ name }</p>
                 <p>{ websiteUrl }</p>
               </div>
-              <div>{ totalVotes }</div>
+
               <div className='admin_nomination_remove_list_item flex_me' onTouchTap={this.handleOnTouchTap}> view </div>
             </div>
           )
@@ -122,3 +122,5 @@ class AdminNominationItem extends Component {
 }
 
 export default connect(null, actions)(AdminNominationItem);
+
+// <div>{ totalVotes }</div>

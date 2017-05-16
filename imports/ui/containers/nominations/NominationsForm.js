@@ -18,22 +18,26 @@ class NominationsForm extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    const { name , websiteUrl, fullName, description, createNomination } = this.props;
+    const { name , websiteUrl, description, createNomination } = this.props;
+    const fullName = Meteor.user().profile.name;
+    createNomination({ name , websiteUrl, fullName, description });
 
-    if( fullName === Meteor.user().username || fullName === Meteor.user().profile.name ) {
-      e.preventDefault();
-      this.setState({ messageSubmit: '', fullNameClass: 'input_signin' });
-      createNomination({ name , websiteUrl, fullName, description });
-    } else {
-      e.preventDefault();
-      this.setState({ messageSubmit: 'please use correct full name', fullNameClass: 'input_fullname_error'});
-      return null;
-    }
+
+  // Name Authentication System
+    // if( fullName === Meteor.user().username || fullName === Meteor.user().profile.name ) {
+    //   e.preventDefault();
+    //   this.setState({ messageSubmit: '', fullNameClass: 'input_signin' });
+    //
+    // } else {
+    //   e.preventDefault();
+    //   this.setState({ messageSubmit: 'please use correct full name', fullNameClass: 'input_fullname_error'});
+    //   return null;
+    // }
   }
 
 
   render() {
-    const { name, websiteUrl, fullName, description, nominationNameInputChange, nominationWebsiteUrlInputChange, nominationDescriptionInputChange, nominationFullNameInputChange, message, disablePolls} = this.props;
+    const { name, websiteUrl, description, nominationNameInputChange, nominationWebsiteUrlInputChange, nominationDescriptionInputChange, message, disablePolls} = this.props;
 
     const { messageSubmit, fullNameClass } = this.state;
 
@@ -47,9 +51,8 @@ class NominationsForm extends Component {
             </h3>
 
             <form className='signin_custom_form flex_me' onSubmit={this.handleSubmit}>
-              <input className='input_signin' placeholder='enter a name' value={name} onChange={e=>nominationNameInputChange(e.target.value)} required/>
+              <input className='input_signin' placeholder='enter an organization name' value={name} onChange={e=>nominationNameInputChange(e.target.value)} required/>
               <input className='input_signin' placeholder='enter website url' value={websiteUrl} onChange={e=>nominationWebsiteUrlInputChange(e.target.value)} required/>
-              <input className={`${fullNameClass}`} placeholder='enter full name' value={fullName} onChange={e=>nominationFullNameInputChange(e.target.value)} required/>
               <textarea className='admin_form_textarea_description' value={description} placeholder='enter description' onChange={e=>nominationDescriptionInputChange(e.target.value)} required/>
               { !messageSubmit || messageSubmit === '' ? null:  <p className='submit_error'>{messageSubmit}</p>  }
               { !message || message === '' ? null: <p>{message}</p> }
@@ -64,8 +67,8 @@ class NominationsForm extends Component {
 
 const mapStateToProps = ({ nominations, polls }) => {
   const { disablePolls } = polls;
-  const { name, websiteUrl, fullName, description, message } = nominations;
-  return { name, websiteUrl,fullName, description, message, disablePolls };
+  const { name, websiteUrl, description, message } = nominations;
+  return { name, websiteUrl, description, message, disablePolls };
 }
 
 export default connect(mapStateToProps, actions)(NominationsForm);

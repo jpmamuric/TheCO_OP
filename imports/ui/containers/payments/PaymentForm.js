@@ -60,14 +60,14 @@ class PaymentForm extends Component {
       <div className='payment_container flex_me'>
         {
           open ? (
-            <form className='payment_form flex_me '>
+            <form className='payment_form flex_me ' autoComplete='on'>
               <div className='payment_title flex_me'>
                 <h3>Link/Update a Card</h3><span className='link_card_cancel_btn' onClick={this.handleCardLinkCancel}>X</span>
               </div>
-              <input type='text' value={number} onChange={e=>cardNumberInputChange(e.target.value)} className='payment_input box_shadow' placeholder='Debit or Credit card number'/>
-              <input type='number' value={exp_month} onChange={e=>cardExpMonthInputChange(e.target.value)} className='payment_input box_shadow' placeholder='expiration month'/>
-              <input type='number' value={exp_year} onChange={e=>cardExpYearInputChange(e.target.value)} className='payment_input box_shadow' placeholder='expiration year'/>
-              <input value={cvc} onChange={ e=>cardCvcInputChange(e.target.value)} className='payment_input box_shadow' placeholder='cvc'/>
+              <input autoComplete='on' type='text' value={number} onChange={e=>cardNumberInputChange(e.target.value)} className='payment_input box_shadow' placeholder='Debit or Credit card number'/>
+              <input autoComplete='on' type='number' value={exp_month} onChange={e=>cardExpMonthInputChange(e.target.value)} className='payment_input box_shadow' placeholder='expiration month'/>
+              <input autoComplete='on' type='number' value={exp_year} onChange={e=>cardExpYearInputChange(e.target.value)} className='payment_input box_shadow' placeholder='expiration year'/>
+              <input autoComplete='on'value={cvc} onChange={ e=>cardCvcInputChange(e.target.value)} className='payment_input box_shadow' placeholder='cvc'/>
                 <div>
                   <button className='payment_submit_btn' onClick={this.handleCardLink}>Save Card</button>
                 </div>

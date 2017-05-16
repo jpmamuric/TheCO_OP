@@ -10,13 +10,13 @@ const NominationsVettedVotingList = (props) => {
   return (
     <div className='vetted_voting_container flex_me'>
       <div>
-        <h1> All Vetted Nominations</h1>
+        <h1> Everyones Vetted Nominations</h1>
       </div>
       <div className='vetted_voting_list flex_me'>
         {
          vetted.map( nominee => <NominationsVettedVotingItem key={nominee._id} nominee={nominee}/> )
         }
-      </div> 
+      </div>
     </div>
   );
 }

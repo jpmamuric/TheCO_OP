@@ -13,7 +13,8 @@ const PollsPage = (props) => {
     return (
       <div className='page_polls flex_me'>
         Nominations Are Now Over
-        <PollWinnerContainer />
+
+        <PollListContainer />
       </div>
     );
   } else {
@@ -31,6 +32,5 @@ const mapStateToProps = ({ polls }) => {
 }
 
 export default connect(mapStateToProps)(PollsPage);
-
-
-// <PollListContainer />
+//
+// <PollWinnerContainer />
