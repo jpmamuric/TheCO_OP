@@ -21,6 +21,7 @@ const PollsPage = (props) => {
     return (
       <div className='page_polls flex_me'>
         <NominationsVettedVotingList />
+        <PollListContainer />
       </div>
     );
   }

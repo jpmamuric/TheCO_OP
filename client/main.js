@@ -14,6 +14,7 @@ injectTapEventPlugin();
 
 //import collections here to use Meteor Methods
 import  { Polls }         from '../imports/api/collections/polls';
+import  { Countdowns }    from '../imports/api/collections/countdowns';
 import  { Nominations }   from '../imports/api/collections/nominations';
 import  { VotingHistory } from '../imports/api/collections/history';
 

@@ -9,14 +9,14 @@ Meteor.methods({
   addNomination({ name, websiteUrl, fullName, description }){
 
     // Checkpoint 1 Validate using built in Meteor validation tools
-    console.log( 'attempting to save', name, websiteUrl, fullName, description )
+      // console.log( 'attempting to save', name, websiteUrl, fullName, description )
     check(name, String);
     check(websiteUrl, String);
     check(description, String);
     check(fullName, String );
 
     //Checkpoint 2 Validate using 3rd-party Schema
-    console.log('passed validation test 1, moving to test 2');
+      // console.log('passed validation test 1, moving to test 2');
       new SimpleSchema({
         name: { type: String },
         websiteUrl: { type: String },
@@ -25,14 +25,14 @@ Meteor.methods({
       }).validate({ name, websiteUrl, fullName, description });
 
     //Checkpoint 3 Check if user is Logged in
-    console.log('passed validation test 2, checking authorizations...');
+      // console.log('passed validation test 2, checking authorizations...');
       // Make sure the user is logged
       if (! Meteor.userId()) {
         throw new Meteor.Error('not-authorized');
       }
 
     //Save poll to Database
-    console.log('saving to Nomination to Database')
+      // console.log('saving to Nomination to Database')
     Nominations.insert({
       name,
       websiteUrl,
@@ -45,7 +45,7 @@ Meteor.methods({
     });
 
     //Confirm Client side Save
-    console.log( name, 'saved!')
+      // console.log( name, 'saved!')
 
   },
   removeNomination({ nominationId }){

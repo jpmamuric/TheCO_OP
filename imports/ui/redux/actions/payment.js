@@ -15,6 +15,8 @@ export const generateStripeToken = ({ number, cvc, exp_month, exp_year }) => {
         console.log(response.error.message)
       } else {
         const stripeToken = response.id;
+
+        //Create Stripe Customer Toker and store on Metoer DB
         Meteor.call('addCard', stripeToken, email, err => {
           if(err) {
             console.log( err );
@@ -34,7 +36,7 @@ export const chargeCustomer = () => {
         if(err){
           console.log(err)
         } else {
-          console.log('successfully called')
+          console.log('successfully charged')
         }
     });
   }

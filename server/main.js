@@ -27,32 +27,32 @@ if(Meteor.isServer) {
         check(token, String);
         check(email, String);
 
-        console.log('card being saved', token, email);
+        // Check for Stripe Customer Token, and Create one if not.
         if( Meteor.user().stripeCustomer === undefined ){
           stripe.customers.create({
             email: email,
-            description: `Cust added For ${email}`,
+            description: `New Customer added For ${email}`,
             source: token // obtained with Stripe.js
-          }, function(err, customer) {
+          }, Meteor.bindEnvironment(function(err, customer) {
             // asynchronously called
             if(err) {
               console.log(err);
             } else {
-              Meteor.users.update(Meteor.user()._id, { $set: { stripeCustomer: customer.id } });
+              Meteor.users.update({_id: Meteor.userId()}, {$set: {"stripeCustomer": customer.id }});;
+              console.log( customer, 'stripe customer token saved');
             }
-          });
+          }));
         } else {
-          console.log( 'customer was updated' );
           stripe.customers.update( Meteor.user().stripeCustomer, {
-            description: `Customer updated for ${email}`
-          }, function(err, customer) {
+            description: `Customer desc updated for ${email}`
+          }, Meteor.bindEnvironment(function(err, customer) {
               // asynchronously called
               if(err) {
                 console.log(err);
               } else {
-                console.log( customer, 'successfully added to stripe ' );
+                console.log( customer, 'successfully updated to stripe ' );
               }
-          });
+          }));
         }
       },
 
